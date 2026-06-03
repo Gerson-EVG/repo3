@@ -1,0 +1,116 @@
+ATOMS
+MASS  -1  ZR    91.22400 ! 
+MASS  -1  O3    15.99940 ! 
+MASS  -1  O1    15.99940 ! 
+MASS  -1  O2    15.99940 ! 
+MASS  -1  C1    12.01100 ! 
+MASS  -1  C2    12.01100 ! 
+MASS  -1  H1     1.00800 !
+MASS  -1  H2     1.00800 !
+! OK
+
+BONDS
+!V(bond) = Kb(b - b0)**2
+!Kb: kcal/mole/A**2
+!b0: A
+!
+! atom types     Kb      b0
+!
+ZR   O2    111.014     1.928
+ZR   O1    460.000     2.214    
+ZR   O3    86.1185     2.086 
+O2   H2    539.786     0.973
+C1   O1    637.7       1.218
+C1   C2    345.9       1.491
+C2   C2    461.1       1.398
+C2   H1    345.8       1.086
+! OK
+
+
+ANGLES
+!V(angle) = Ktheta(Theta - Theta0)**2
+!V(Urey-Bradley) = Kub(S - S0)**2
+!Ktheta: kcal/mole/rad**2
+!Theta0: degrees
+!Kub: kcal/mole/A**2 (Urey-Bradley)
+!S0: A
+!
+! atom types     Ktheta  Theta0   Kub    S0
+!
+ZR   O3   ZR    35.2285    114.287  0.00   0.00
+ZR   O2   ZR    34.649     109.647  0.00   0.00
+ZR   O2   H2    61.858     100.027  0.00   0.00
+ZR   O1   C1    70.2665    127.251  0.00   0.00
+O3   ZR   O1    11.348     104.677  0.00   0.00 
+O3   ZR   O2    52.215     59.098   0.00   0.00
+O3   ZR   O3    36.1515    87.027   0.00   0.00
+O2   ZR   O2    70.923     98.835   0.00   0.00
+O2   ZR   O1    44.298     92.633   0.00   0.00
+O1   ZR   O1    133.755    73.527   0.00   0.00 !RARO
+O1   C1   O1    77.9       130.250  0.00   0.00
+O1   C1   C2    68.7       122.600  0.00   0.00
+C1   C2   C2    64.3       120.330  0.00   0.00
+C2   C2   H1    48.2       119.880  0.00   0.00
+C2   C2   C2    66.6       120.020  0.00   0.00
+! OK
+
+
+DIHEDRALS
+! ******** V(dihedral) = Kchi(1 + cos(n(chi) - delta))
+ZR   O1   C1   C2       20.7545    2     180.0 !*
+O3   ZR   O1   C1       0.0     2     0
+O1   ZR   O1   C1       0.0     2     0 
+ZR   O1   C1   O1       0.0     2     0
+O1   ZR   O3   ZR       0.0     2     0
+O3   ZR   O3   ZR       0.0     2     0
+O1   ZR   O2   ZR       0.0     2     0
+O1   ZR   O2   H2       0.0     2     0
+O3   ZR   O2   ZR       0.0     2     0
+O3   ZR   O2   H2       0.0     2     0
+O2   ZR   O2   ZR       0.0     2     0
+O2   ZR   O2   H2       0.0     2     0
+O2   ZR   O1   C1       0.0     2     0
+O2   ZR   O3   ZR       0.0     2     0
+H1   C2   C2   H1       3.625     2     180.0
+C2   C2   C2   C2       3.625     2     180.0
+C2   C2   C2   H1       3.625     2     180.0
+H1   C2   C2   C1       3.625     2     180.0
+C2   C2   C2   C1       3.625     2     180.0
+C2   C2   C1   O1       1.100     2     180.0
+! OK
+
+IMPROPER
+!
+!V(improper) = Kchi(1 + cos(n(chi) - delta))
+!V(improper) = Kpsi(psi - psi0)**2
+!
+!Kpsi: kcal/mole/rad**2
+!psi0: degrees
+!
+C1   C2   O1   O1       1.100      2     180.0
+C2   C2   C2   H1       1.100      2     180.0
+C2   C1   C2   C2       1.100      2     180.0
+! OK
+
+NONBONDED  NBXMOD 5  ATOM CDIEL FSHIFT VATOM VDISTANCE VFSWITCH -
+     CUTNB 14.0  CTOFNB 12.0  CTONNB 10.0  EPS 1.0  E14FAC 1.0  WMIN 1.5
+!********* V(Lennard-Jones) = Eps,i,j[(Rmin,i,j/ri,j)**12 - 2(Rmin,i,j/ri,j)**6]
+!
+!epsilon: kcal/mole, Eps,i,j = sqrt(eps,i * eps,j)
+!Rmin/2: A, Rmin,i,j = Rmin/2,i + Rmin/2,j
+!
+!atom  ignored    epsilon      Rmin/2   ignored   eps,1-4       Rmin/2,1-4
+!
+ZR     0.0        -0.069   1.562467171 
+C1     0.0        -0.086   1.908185482
+O1     0.0        -0.210   1.661243831
+O2     0.0        -0.210   1.661243831
+O3     0.0        -0.210   1.661243831
+C2     0.0        -0.086   1.908185482
+H1     0.0        -0.015   1.459200663
+H2     0.0        -0.000   0.000000000
+! OK
+
+END
+
+

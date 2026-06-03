@@ -1,0 +1,70 @@
+
+ATOMS
+MASS  -1  HT     1.00800 ! TIP4P WATER HYDROGEN
+MASS  -1  OT    15.99940 ! TIP4P WATER OXYGEN
+MASS  -1  MT     0.00000 ! TIP4P WATER OXYGEN
+
+! OK
+
+BONDS
+!V(bond) = Kb(b - b0)**2
+!Kb: kcal/mole/A**2
+!b0: A
+!
+! atom types     Kb      b0
+!
+HT   HT    0.0         1.5139  ! sin uso
+HT   OT    450.0       0.9572  ! from TIP4P geometry
+MT   OT    634.2       0.15    ! from TIP4P geometry
+! OK
+
+
+ANGLES
+!V(angle) = Ktheta(Theta - Theta0)**2
+!V(Urey-Bradley) = Kub(S - S0)**2
+!Ktheta: kcal/mole/rad**2
+!Theta0: degrees
+!Kub: kcal/mole/A**2 (Urey-Bradley)
+!S0: A
+!
+! atom types     Ktheta  Theta0   Kub    S0
+!
+HT   OT   HT    55.0       104.52   ! FROM TIP4P GEOMETRY
+HT   OT   MT    55.0       52.26    ! FROM TIP4P GEOMETRY
+! OK
+
+
+DIHEDRALS
+! ******** V(dihedral) = Kchi(1 + cos(n(chi) - delta))
+
+
+! OK
+
+IMPROPER
+!
+!V(improper) = Kchi(1 + cos(n(chi) - delta))
+!V(improper) = Kpsi(psi - psi0)**2
+!
+!Kpsi: kcal/mole/rad**2
+!psi0: degrees
+!
+OT HT   HT   MT         0.0000      2     180.0 !sin uso.
+
+
+NONBONDED  NBXMOD 5  ATOM CDIEL FSHIFT VATOM VDISTANCE VFSWITCH -
+     CUTNB 14.0  CTOFNB 12.0  CTONNB 10.0  EPS 1.0  E14FAC 1.0  WMIN 1.5
+!********* V(Lennard-Jones) = Eps,i,j[(Rmin,i,j/ri,j)**12 - 2(Rmin,i,j/ri,j)**6]
+!
+!epsilon: kcal/mole, Eps,i,j = sqrt(eps,i * eps,j)
+!Rmin/2: A, Rmin,i,j = Rmin/2,i + Rmin/2,j
+!
+!atom  ignored    epsilon      Rmin/2   ignored   eps,1-4       Rmin/2,1-4
+!
+HT     0.0        -0.0000  0.5612  ! TIP4
+OT     0.0        -0.1550  1.7698  ! TIP4
+MT     0.0        -0.0000  0.5612  ! TIP4
+! OK
+
+END
+
+

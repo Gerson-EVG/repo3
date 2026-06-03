@@ -1,0 +1,2 @@
+! B3LYP def2-TZVP PAL4 resp D3BJ CPCM(water) opt
+*xyzfile 0 1 guess10.xyz

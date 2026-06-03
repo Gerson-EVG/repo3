@@ -1,0 +1,7 @@
+! WB97X-D3BJ def2-TZVP CPCM(water) HIRSHFELD PAL16 RESP OPT
+
+%basis
+newgto Zr "def2-TZVPP" end
+end
+
+*xyzfile 0 1 guess1.xyz
